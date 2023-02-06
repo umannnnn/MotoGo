@@ -1,19 +1,21 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">MotoGo</a>
+        <a class="navbar-brand" href="/">MotoGo</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-                <a class="nav-link" href="#">Features</a>
-                <a class="nav-link" href="#">Pricing</a>
+                <a class="nav-link" aria-current="page" href="#tampilan">Tampilan</a>
+                <a class="nav-link" href="#spesifikasi">Spesifikasi</a>
+                <a class="nav-link" href="#review">Review</a>
+                <a class="nav-link" href="#sk">Syarat & Ketentuan</a>
+                <a class="nav-link" href="#kontak">Kontak</a>
             </div>
         </div>
         
         @auth
-        <li class="nav-item dropdown">
+        <div class="nav-item dropdown">
             <button class="btn btn-dark dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
                 Hi, {{ auth()->user()->name }}
             </button>
@@ -28,7 +30,7 @@
             </ul>
             @else
             <a type="button" href="/login" class="btn btn-secondary btn-sm">Login</a>
-        </li>
+        </div>
         @endauth
 
     </div>

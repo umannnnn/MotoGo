@@ -25,7 +25,7 @@
         <!-- Pills content -->
         <div class="tab-content">
             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
-            <form method="post" action="{{  route('login') }}">
+            <form method="post" action="/login">
                 @csrf
                 <div class="text-center mb-3">
                     <p>Sign in with:</p>
@@ -47,13 +47,13 @@
         
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input type="email" id="email" class="form-control" />
+                    <input type="email" id="email" name="email" class="form-control" />
                     <label class="form-label" for="email">Email</label>
                 </div>
         
                 <!-- Password input -->
                 <div class="form-outline mb-4">
-                    <input type="password" id="password" class="form-control" />
+                    <input type="password" id="password" name="password" class="form-control" />
                     <label class="form-label" for="password">Password</label>
                 </div>
         
@@ -74,16 +74,11 @@
         
                 <!-- Submit button -->
                 <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
-        
-                <!-- Register buttons -->
-                <div class="text-center">
-                    <p>Not a member? <a href="#!">Register</a></p>
-                </div>
             </form>
         </div>
 
         <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
-            <form method="post" action="{{  route('register') }}">
+            <form method="post" action="/register">
                 @csrf
                 <div class="text-center mb-3">
                     <p>Sign up with:</p>

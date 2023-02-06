@@ -3,7 +3,11 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Carbon\Carbon;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +18,40 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        $this->call(RoleSeeder::class);
+        $this->call(PermissionSeeder::class);
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        //create user
+        $user = User::create([
+            'name' => 'Administrator',
+            'email'     => 'usmanpamungkas30@gmail.com',
+            'username'     => 'pamungkas',
+            'password'  => bcrypt('admin123'),
+            'email_verified_at' => Carbon::now()
+        ]);
+
+        //get all permissions
+        $permissions = Permission::all();
+
+        //get role admin
+        $role = Role::find(1);
+
+        //assign permission to role
+        $role->syncPermissions($permissions);
+
+        //assign role to user
+        $user->assignRole($role);
+
+        //get role leader
+        $role = Role::find(2);
+
+        $role->syncPermissions([
+            'dashboard.index',
+            'dashboard.create',
+            'dashboard.edit',
+            'dashboard.delete',
+        ]);
+
+        // $this->call(SimulationSeeder::class);
     }
 }

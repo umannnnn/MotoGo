@@ -23,7 +23,7 @@
     <body>
         @include('partials.navbar')
         
-        <div class="container mt-3">
+        <div id="tampilan" class="container mt-3">
             <div class="w3-container">
                 <h2><strong>Honda PCX 160</strong></h2>
                 <p>Mulai dari Rp. 150000 / Hari</p>
@@ -68,7 +68,7 @@
                 </div>
             </div>
 
-            <div class="container mt-5 ">
+            <div id="spesifikasi" class="container mt-5 ">
                 <h4><strong>Spesifikasi</strong></h4>
                 <div class="row large">
                     <div class="col s6">
@@ -84,13 +84,13 @@
                 </div>
                 <hr>
                 
-                <h4><strong>Review Motor</strong></h4>
+                <h4 id="review"><strong>Review Motor</strong></h4>
                 <p style="text-align: justify">Februari 2020, Honda PCX 160 meluncur untuk gantikan PCX 150. Harganya terkoreksi relatif sedikit dibanding dengan segala kebaruan yang dialaminya. Sasis, mesin hingga ragam fitur baru dikemas dalam tampilan yang juga segar.</p> 
                 <p style="text-align: justify">Pembenahan utama terletak di sektor mekanikal. All New Honda PCX 160 pakai mesin generasi terbaru dengan 4-klep bertitelSmart Power plus (eSP+). Kapasitasnya pun meningkat, dari sebelumnya 149 cc menjadi 157 cc. Konstruksi silinder juga tentunya meningkat dari yang tadinya 57,3 x 57,9 mm, menjadi 60 x 55,5 mm. Di atas kertas, kini dirinya bisa melontarkan daya hingga 16 Hp di 8.500 rpm dan torsi 14,7 Nm pada 6.500 rpm. Sementara model sebelumnya, cuma bisa menghasilkan tenaga 14,7 Hp di 8.500 rpm dan melontarkan torsi 13,2 Nm pada 6.500 rpm.</p> 
                 <p style="text-align: justify">Honda PCX masuk dalam jajaran skutik premium yang ditawarkan oleh PT Astra Honda Motor (AHM). All New PCX yang beredar sekarang diproduksi di pabrik Honda di Sunter, Jakarta. Ia ditawarkan dalam dua tipe yakni ABS dan CBS. Perbedaan keduanya tentu saja di sektor pengereman.</p>
                 <hr>
                 
-                <h4><strong>Syarat</strong></h4>
+                <h4 id="sk"><strong>Syarat</strong></h4>
                 <ul>
                     <li><p>FC KTP, KK ( Aslinya diperlihatkan)</p></li>
                     <li><p>Apabila Penyewa berasal dari luar kota, maka identitas asli harus ditinggalkan dan akan dikembalikan pada saat pengembalian motor</p></li>
@@ -108,7 +108,7 @@
             <hr>
             
             <!-- Contact -->
-            <div class="container bg-body-secondary py-3 px-3">
+            <div id="kontak" class="container bg-body-secondary py-3 px-3">
                 <div class="container">
                     <h2><strong>Kontak Kami</strong></h2>
                     <i class="fa-solid fa-location-dot"></i> Lokasi : Purwokerto<br>
