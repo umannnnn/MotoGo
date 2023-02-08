@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Category;
 use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -50,6 +52,19 @@ class DatabaseSeeder extends Seeder
             'dashboard.create',
             'dashboard.edit',
             'dashboard.delete',
+        ]);
+
+        Category::create([
+            'name' => 'Matic',
+            'user_id' => 1,
+        ]);
+        Category::create([
+            'name' => 'Manual',
+            'user_id' => 1,
+        ]);
+        Category::create([
+            'name' => 'Sport',
+            'user_id' => 1,
         ]);
 
         // $this->call(SimulationSeeder::class);

@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\motor;
 use Illuminate\Http\Request;
-use Termwind\Components\Dd;
 
-class motorController extends Controller
+class adminDashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,25 +15,8 @@ class motorController extends Controller
      */
     public function index()
     {
-        return view('motor-matic', [
-            'motors' => motor::where('category_id', '1')->get(),
-            'categories' => Category::all(),
-        ]);
-    }
-
-    public function indexManual()
-    {
-        return view('motor-manual', [
-            'motors' => motor::where('category_id', '2')->get(),
-            'categories' => Category::all(),
-        ]);
-    }
-
-    public function indexSport()
-    {
-        return view('motor-sport', [
-            'motors' => motor::where('category_id', '3')->get(),
-            'categories' => Category::all(),
+        return view('dashboard-admin.index', [
+            'motor' => motor::all(),
         ]);
     }
 
@@ -45,8 +27,8 @@ class motorController extends Controller
      */
     public function create()
     {
-        return view('penyewa.create', [
-            'categories' => Category::all(),
+        return view('dashboard-admin.create', [
+            'categories' => Category::all()
         ]);
     }
 
@@ -60,7 +42,7 @@ class motorController extends Controller
     {
         $validateData = $request->validate([
             'merkMotor' => 'required',
-            'harga' => 'required',
+            'harga' => '',
             'bahanBakar' => '',
             'mesin' => '',
             'warna' => '',
@@ -83,7 +65,7 @@ class motorController extends Controller
 
         $validateData['user_id'] = auth()->user()->id;
         motor::create($validateData);
-        return redirect('/penyewa');
+        return redirect('dashboard');
     }
 
     /**
@@ -94,10 +76,9 @@ class motorController extends Controller
      */
     public function show($id)
     {
-        $data = motor::find($id);
-        return view('spec', compact('data'));
+
     }
-        
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -106,7 +87,10 @@ class motorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $motor = motor::find($id);
+        return view('dashboard-admin.edit', [
+            'categories' => Category::all()
+        ],compact('motor'));
     }
 
     /**
@@ -118,7 +102,33 @@ class motorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validateData = $request->validate([
+            'merkMotor' => 'required',
+            'harga' => '',
+            'bahanBakar' => '',
+            'mesin' => '',
+            'warna' => '',
+            'speedometer' => '',
+            'category_id' => '',
+            'tahunKeluaran' => '',
+            'review' => '',
+            'img1' => '',
+            'img2' => '',
+            'img3' => '',
+            'img4' => '',
+
+        ]);
+        if ($request->file('img1','img2','img3','img4')) {
+            $validateData['img1'] = $request->file('img1')->store('post-images');
+            $validateData['img2'] = $request->file('img2')->store('post-images');
+            $validateData['img3'] = $request->file('img3')->store('post-images');
+            $validateData['img4'] = $request->file('img4')->store('post-images');
+        }
+
+        $validateData['user_id'] = auth()->user()->id;
+        motor::where('id', $id)->update($validateData);
+        return redirect('dashboard');
+
     }
 
     /**
@@ -129,6 +139,8 @@ class motorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        motor::where('id', $id)->delete();
+        return redirect('dashboard')->with('success', 'Artikel berhasil dihapus!');
+        // return response()->json(['success' => 'Artikel berhasil dihapus!']);
     }
 }

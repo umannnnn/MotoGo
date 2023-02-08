@@ -1,10 +1,17 @@
 <?php
 
+use App\Models\motor;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\adminDashboard;
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\motorController;
 use App\Http\Controllers\rolesController;
+use App\Http\Controllers\sportController;
+use App\Http\Controllers\manualController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\pelangganController;
+use App\Http\Controllers\adminDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,45 +28,13 @@ Route::get('/', function () {
     return view('landing');
 });
 
-// Route::get('/landing1', function () {
-//     return view('landingMatic');
-// });
-
-Route::get('/landing2', function () {
-    return view('landingManual');
-});
-
-Route::get('/landing3', function () {
-    return view('landingSport');
-});
-
-Route::get('/spec', function () {
-    return view('spec');
-});
-
-Route::get('/landing', function () {
-    return view('landing');
-});
-
-Route::get('/index', function () {
-    return view('dashboard.index');
-});
-
-Route::get('/tambah', function () {
-    return view('dashboard.create');
-});
-
-Route::get('/ubah', function () {
-    return view('dashboard.edit');
-});
-
-Route::get('/book', function () {
-    return view('dashboard.booking');
-});
-
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::get('/loginAdmin', [adminController::class, 'index']);
+Route::post('/loginAdmin', [adminController::class, 'authenticate']);
+Route::post('/logout', [adminController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index']);
 Route::post('/register', [RegisterController::class, 'store']);
@@ -67,9 +42,13 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::group(['middleware' => ['auth']], function () {
 Route::get('/role', [rolesController::class, 'index'])->middleware('cekRole');
 Route::post('/choose-role', [rolesController::class, 'chooseRole']);
-
-Route::resource('landing1', motorController::class);
 });
+
+Route::resource('penyewa', motorController::class);
+Route::get('motor-manual', [motorController::class, 'indexManual']);
+Route::get('motor-sport', [motorController::class, 'indexSport']);
+Route::resource('pelanggan', pelangganController::class);
+Route::resource('dashboard', adminDashboardController::class);
 
 
 // Route::get('/login', function () {

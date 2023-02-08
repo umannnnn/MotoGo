@@ -13,8 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('motors', function (Blueprint $table) {
-            $table->string('merkMotor');
+        Schema::table('pelanggans', function (Blueprint $table) {
+            $table->string('foto_ktp', 255);
         });
     }
 
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('motors', function (Blueprint $table) {
+        Schema::table('pelanggans', function (Blueprint $table) {
             //
         });
     }

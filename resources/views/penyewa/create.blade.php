@@ -62,81 +62,80 @@
                 <h4 class="font-weight-bold">Form Tambah Data Motor</h4>
             </div>
             <!-- Card Content - Collapse -->
-            <form action="{{ route('landing1.index') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('penyewa.index') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="collapse show" id="collapseCardExample">
                     <div class="card-body col-lg-10">
                         <div class="mb-3">
                             <label for="merkMotor" class="form-label">Merk Motor</label>
-                            <input class="form-control" id="merkMotor" name="merkMotor" type="text"
-                                aria-label="default input example">
+                            <input class="form-control" id="merkMotor" name="merkMotor" type="text">
+                        </div>
+                        <div class="mb-3">
+                            <label for="harga" class="form-label">Biaya Sewa</label>
+                            <input class="form-control" id="harga" name="harga" type="text">
+                            <div id="hargaHelp" class="form-text">Biaya sewa per harinya</div>
                         </div>
                         <div class="mb-3">
                             <label for="mesin" class="form-label">Kapasitas Mesin</label>
-                            <input class="form-control" id="mesin" name="mesin" type="text"
-                                aria-label="default input example">
+                            <input class="form-control" id="mesin" name="mesin" type="text">
                             <div id="mesinHelp" class="form-text">Isi kapasitas mesin dengan ukuran CC. ex : 160</div>
                         </div>
                         <div class="mb-3">
                             <label for="bahanBakar" class="form-label">Bahan Bakar</label>
-                            <select class="form-select" id="bahanBakar" name="bahanBakar"
-                                aria-label="Default select example">
-                                <option value="1">Bensin</option>
-                                <option value="2">Solar</option>
+                            <select class="form-select" id="bahanBakar" name="bahanBakar">
+                                <option value="Bensin">Bensin</option>
+                                <option value="Solar">Solar</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="warna" class="form-label">Warna Motor</label>
-                            <input class="form-control" id="warna" name="warna" type="text"
-                                aria-label="default input example">
+                            <input class="form-control" id="warna" name="warna" type="text">
                         </div>
                         <div class="mb-3">
                             <label for="speedometer" class="form-label">Jenis Speedometer</label>
-                            <input class="form-control" id="speedometer" name="speedometer" type="text"
-                                aria-label="default input example">
+                            <input class="form-control" id="speedometer" name="speedometer" type="text">
                         </div>
                         <div class="mb-3">
                             <label for="tipe" class="form-label">Tipe Motor</label>
-                            <select class="form-select" id="tipe" name="tipe" aria-label="Default select example">
-                                <option value="1">Matic</option>
-                                <option value="2">Manual</option>
-                                <option value="3">Sport</option>
+                            <select class="form-select" name="category_id" id="category_id">
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="tahunKeluaran" class="form-label">Tahun Keluaran</label>
-                            <select class="form-select" id="tahunKeluaran" name="tahunKeluaran"
-                                aria-label="Default select example">
-                                <option value="1">2015</option>
-                                <option value="2">2016</option>
-                                <option value="3">2017</option>
-                                <option value="4">2018</option>
-                                <option value="5">2019</option>
-                                <option value="6">2020</option>
-                                <option value="7">2021</option>
-                                <option value="8">2022</option>
-                                <option value="9">2023</option>
+                            <select class="form-select" id="tahunKeluaran" name="tahunKeluaran">
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
                             </select>
                         </div>
                         <div class="mb-3">
                             <label for="review" class="form-label">Review Motor</label>
-                            <div id="editor" name="review"></div>
+                            <textarea id="review" name="review"></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="img1" class="form-label">Tampak Keseluruhan</label>
-                            <input class="form-control" id="img1" name="img1" type="file" id="formFile">
+                            <input class="form-control" id="img1" name="img1" type="file">
                         </div>
                         <div class="mb-3">
                             <label for="img2" class="form-label">Tampak Depan</label>
-                            <input class="form-control" id="img2" name="img2" type="file" id="formFile">
+                            <input class="form-control" id="img2" name="img2" type="file">
                         </div>
                         <div class="mb-3">
                             <label for="img3" class="form-label">Tampak Belakang</label>
-                            <input class="form-control" id="img3" name="img3" type="file" id="formFile">
+                            <input class="form-control" id="img3" name="img3" type="file">
                         </div>
                         <div class="mb-3">
                             <label for="img4" class="form-label">Tampak Mesin</label>
-                            <input class="form-control" id="img4" name="img4" type="file" id="formFile">
+                            <input class="form-control" id="img4" name="img4" type="file">
                         </div>
                         <div class="mt-5">
                             <button class="btn btn-primary btn-block" type="submit">Tambah</button>
@@ -155,7 +154,7 @@
 
     <script>
         ClassicEditor
-            .create( document.querySelector( '#editor' ) )
+            .create( document.querySelector( '#review' ) )
             .catch( error => {
                 console.error( error );
             } );

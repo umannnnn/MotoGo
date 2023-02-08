@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class loginController extends Controller
+class adminController extends Controller
 {
     public function index()
     {
@@ -22,12 +22,8 @@ class loginController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            $redirect = '/role';
-            if (Auth::user()->hasRole('admin')) {
 
-                $redirect = 'dashboard';
-            }
-            return redirect()->intended($redirect)->with('loginSuccess', 'Login Berhasil');
+            return redirect()->intended('dashboard')->with('loginSuccess', 'Login Berhasil');
         }
         return back()->with('loginError', 'Login Gagal');
     }

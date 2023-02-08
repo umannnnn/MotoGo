@@ -13,15 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('motors', function (Blueprint $table) {
+        Schema::create('motor', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
+            $table->text('merkMotor');
             $table->string('bahanBakar');
             $table->string('mesin');
-            $table->string('warna');
+            $table->text('warna');
             $table->string('speedometer');
-            $table->string('tipe');
-            $table->string('tahunKeluaran');
-            $table->string('review');
+            $table->foreignId('category_id');
+            $table->integer('tahunKeluaran');
+            $table->text('review');
             $table->string('img1');
             $table->string('img2');
             $table->string('img3');
@@ -37,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('motors');
+        Schema::dropIfExists('motor');
     }
 };
