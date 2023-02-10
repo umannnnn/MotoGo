@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Login & Register</title>
 </head>
 <body>
 
@@ -27,23 +27,14 @@
             <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
             <form method="post" action="/login">
                 @csrf
-                <div class="text-center mb-3">
+                {{-- <div class="text-center mb-3">
                     <p>Sign in with:</p>
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
+                    <a href="{{ url('auth/redirect') }}" type="button" class="btn btn-secondary btn-floating mx-1">
                         <i class="fab fa-google"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-twitter"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-github"></i>
-                    </button>
-                </div>
+                    </a>
+                </div> --}}
         
-                <p class="text-center">or:</p>
+                <p class="text-center">Login dengan akun anda</p>
         
                 <!-- Email input -->
                 <div class="form-outline mb-4">
@@ -66,10 +57,6 @@
                             <label class="form-check-label" for="loginCheck"> Remember me </label>
                         </div>
                     </div>
-                    <div class="col-md-6 d-flex justify-content-center">
-                        <!-- Simple link -->
-                        <a href="#!">Forgot password?</a>
-                    </div>
                 </div>
         
                 <!-- Submit button -->
@@ -80,23 +67,8 @@
         <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
             <form method="post" action="/register">
                 @csrf
-                <div class="text-center mb-3">
-                    <p>Sign up with:</p>
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-facebook-f"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-google"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-twitter"></i>
-                    </button>
-                    <button type="button" class="btn btn-secondary btn-floating mx-1">
-                        <i class="fab fa-github"></i>
-                    </button>
-                </div>
         
-                <p class="text-center">or:</p>
+                <p class="text-center">Buat Akun Baru </p>
         
                 <!-- Name input -->
                 <div class="form-outline mb-4">

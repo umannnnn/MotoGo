@@ -34,7 +34,7 @@
                         <td>{{ $plg->tgl_pesan }}</td>
                         <td>{{ $plg->tgl_balik }}</td>
                         <td>
-                            <a type="button" href="" class="btn btn-primary btn-sm btn-block">Invoice</a>
+                            <a type="button" href="https://api.whatsapp.com/send?phone={{ $plg->nomor_hp }}&text=Invoice By MotoGo" target="_blank" class="btn btn-primary btn-sm btn-block">Invoice</a>
                             <form action="/pelanggan/{{ $plg->id }}" method="POST">
                                 @method('delete')
                                 @csrf

@@ -13,7 +13,6 @@
                 <a class="nav-link" href="#kontak">Kontak</a>
             </div>
         </div>
-        
         @auth
         <div class="nav-item dropdown">
             <button class="btn btn-dark dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,6 +31,5 @@
             <a type="button" href="/login" class="btn btn-secondary btn-sm">Login</a>
         </div>
         @endauth
-
     </div>
 </nav>

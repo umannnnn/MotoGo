@@ -89,13 +89,17 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $mtr->merkMotor }}</h5>
                         <p class="card-text">
-                        <ul>
-                            <li>Tipe : {{ $mtr->category->name }}</li>
-                            <li>Mesin : {{ $mtr->mesin }} cc</li>
-                            <li>Tahun Keluaran : {{ $mtr->tahunKeluaran }}</li>
-                        </ul>
+                            <ul>
+                                <li>Tipe : {{ $mtr->category->name }}</li>
+                                <li>Mesin : {{ $mtr->mesin }} cc</li>
+                                <li>Tahun Keluaran : {{ $mtr->tahunKeluaran }}</li>
+                            </ul>
                         </p>
+                        @auth
                         <a href="/penyewa/{{ $mtr->id }}" class="btn btn-primary">Booking now</a>
+                        @else
+                        <a href="/login" class="btn btn-primary">Booking now</a>
+                        @endauth
                     </div>
                 </div>
             </div>

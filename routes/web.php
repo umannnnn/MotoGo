@@ -1,14 +1,16 @@
 <?php
 
 use App\Models\motor;
+use Faker\Guesser\Name;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\adminDashboard;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\motorController;
 use App\Http\Controllers\rolesController;
-use App\Http\Controllers\sportController;
-use App\Http\Controllers\manualController;
+use App\Http\Controllers\GoogleController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\pelangganController;
 use App\Http\Controllers\adminDashboardController;
@@ -47,6 +49,7 @@ Route::post('/choose-role', [rolesController::class, 'chooseRole']);
 Route::resource('penyewa', motorController::class);
 Route::get('motor-manual', [motorController::class, 'indexManual']);
 Route::get('motor-sport', [motorController::class, 'indexSport']);
+
 Route::resource('pelanggan', pelangganController::class);
 Route::resource('dashboard', adminDashboardController::class);
 

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>MotoGo</title>
+        <title>Spesifikasi & Pemesanan</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -20,7 +20,46 @@
     </head>
 
     <body>
-        @include('partials.navbar')
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="/">MotoGo</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                        <div class="navbar-nav">
+                            <a class="nav-link" aria-current="page" href="#tampilan">Tampilan</a>
+                            <a class="nav-link" href="#spesifikasi">Spesifikasi</a>
+                            <a class="nav-link" href="#review">Review</a>
+                            <a class="nav-link" href="#sk">Syarat & Ketentuan</a>
+                            <a class="nav-link" href="#kontak">Kontak</a>
+                        </div>
+                    </ul>
+                    @auth
+                    <div class="nav-item dropdown">
+                        <button class="btn btn-dark dropdown-toggle btn-sm" data-bs-toggle="dropdown" aria-expanded="false">
+                            Hi, {{ auth()->user()->name }}
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <form action="/logout" method="post">
+                                @csrf
+                                <li><button class="dropdown-item" type="submit" href="#">Logout</button></li>
+                            </form>
+                        </ul>
+                        @else
+                        <a type="button" href="/login" class="btn btn-secondary btn-sm">Login</a>
+                    </div>
+                    @endauth
+                </div>
+            </div>
+        </nav>
         
         <div id="tampilan" class="container mt-3">
             <div class="w3-container">
@@ -109,7 +148,7 @@
                 <div class="container">
                     <h2><strong>Kontak Kami</strong></h2>
                     <i class="fa-solid fa-location-dot"></i> Lokasi : Purwokerto<br>
-                    <i class="fa-brands fa-square-whatsapp"></i> Whatsapp : 6282227974000<br>
+                    <i class="fa-brands fa-square-whatsapp"></i> Whatsapp : 6285775144906<br>
                     <i class="fa-solid fa-envelope"></i> Email : usmanpamungkas30@gmail.com<br>
                 </div>
                 <div class="container mt-3 ">

@@ -224,3 +224,13 @@
   opacity: 0.8;
 }
 
+.zoom {
+  transition: transform .2s;
+  width: 400px;
+  height: 200px;
+  margin-bottom: 30px;
+}
+
+.zoom:hover {
+  transform: scale(1.1);
+}

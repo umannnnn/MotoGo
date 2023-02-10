@@ -17,21 +17,8 @@
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="/">MotoGo</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
-                aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                    <li><a class="nav-link" href="#layanan">Layanan</a></li>
-                    <li><a class="nav-link" href="#gallery">Gallery</a></li>
-                    @auth
-                    <li><a class="nav-link" href="{{ route('penyewa.index') }}">Booking</a></li>
-                    @endauth
-                    @role('penyewa')
-                    <li><a class="nav-link" href="{{ route('penyewa.create') }}">Tambah Motor</a></li>
-                    @endrole
-                </ul>
+            <div class="collapse navbar-collapse">
+                
             </div>
             @auth
             <div class="nav-item dropdown">
@@ -39,8 +26,9 @@
                     Hi, {{ auth()->user()->name }}
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    @role('penyewa')
+                    <li><a class="dropdown-item" href="{{ route('penyewa.create') }}">Tambah Motor</a></li>
+                    @endrole
                     <li>
                         <hr class="dropdown-divider">
                     </li>
@@ -147,12 +135,13 @@
                     </ul>
                     <p style="text-align: justify">Perusahaan kami memahami bahwa layanan yang baik adalah salah satu
                         faktor penting bagi pelanggan kami dalam memilih tempat penyewaan sepeda motor. Oleh karena itu,
-                        kami menawarkan berbagai layanan untuk memenuhi kebutuhan pelanggan kami.</p>
-                    <p style="text-align: justify">Kami menyediakan berbagai pilihan sepeda motor yang sesuai dengan
-                        kebutuhan pelanggan kami, mulai dari sepeda motor untuk perjalanan singkat hingga sepeda motor
-                        untuk perjalanan jauh. Kami juga menawarkan tarif yang terjangkau dan fleksibel bagi pelanggan
-                        kami, sehingga mereka dapat memilih paket yang sesuai dengan anggaran mereka.</p>
-                </section>
+                        kami menawarkan berbagai layanan untuk memenuhi kebutuhan pelanggan kami Kami menyediakan berbagai 
+                        pilihan sepeda motor yang sesuai dengan kebutuhan pelanggan kami, mulai dari sepeda motor untuk 
+                        perjalanan singkat hingga sepeda motor untuk perjalanan jauh.</p>
+                        <div class="d-grid gap-2 mb-3">
+                            <a class="btn btn-primary" href="{{ route('penyewa.index') }}" type="button">Lihat Pilihan Motor...</a>
+                        </div>
+                    </section>
             </div>
             <div class="col-md-6">
                 <section class="wow fadeInDown" data-wow-delay="0.5s">
@@ -164,61 +153,41 @@
 
         <div class="sectiona">
             <!-- Portfolio Section -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section id="gallery" class="wow fadeInRight" data-wow-delay="0.5s">
-                            <h2 class="page-header">Gallery MotoGo</h2>
-                        </section>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <section class="wow fadeInDown" data-wow-delay="0.5s">
-                            <a href="portfolio-item.html">
-                                <img class="img-responsive img-portfolio img-hover"
-                                    src="http://source.unsplash.com/1920x1080?kawasaki" alt="">
-                            </a>
-                        </section>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <section class="wow fadeInDown" data-wow-delay="0.5s">
-                            <a href="portfolio-item.html">
-                                <img class="img-responsive img-portfolio img-hover"
-                                    src="http://source.unsplash.com/1920x1080?husqvarna" alt="">
-                            </a>
-                        </section>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <section class="wow fadeInDown" data-wow-delay="0.5s">
-                            <a href="portfolio-item.html">
-                                <img class="img-responsive img-portfolio img-hover"
-                                    src="http://source.unsplash.com/1920x1080?yamaha" alt="">
-                            </a>
-                        </section>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <section class="wow fadeInDown" data-wow-delay="0.5s">
-                            <a href="portfolio-item.html">
-                                <img class="img-responsive img-portfolio img-hover"
-                                    src="http://source.unsplash.com/1920x1080?mvagusta" alt="">
-                            </a>
-                        </section>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <section class="wow fadeInDown" data-wow-delay="0.5s">
-                            <a href="portfolio-item.html">
-                                <img class="img-responsive img-portfolio img-hover"
-                                    src="http://source.unsplash.com/1920x1080?harleydavidson" alt="">
-                            </a>
-                        </section>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <section class="wow fadeInDown" data-wow-delay="0.5s">
-                            <a href="portfolio-item.html">
-                                <img class="img-responsive img-portfolio img-hover"
-                                    src="http://source.unsplash.com/1920x1080?ducati" alt="">
-                            </a>
-                        </section>
-                    </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <section id="gallery" class="wow fadeInRight" data-wow-delay="0.5s">
+                        <h2 class="page-header">Gallery MotoGo</h2>
+                    </section>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <section class="wow fadeInDown" data-wow-delay="0.5s">
+                        <img class="img-responsive zoom" src="http://source.unsplash.com/1920x1080?kawasaki" alt="">
+                    </section>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <section class="wow fadeInDown" data-wow-delay="0.5s">
+                        <img class="img-responsive zoom" src="http://source.unsplash.com/1920x1080?husqvarna" alt="">
+                    </section>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <section class="wow fadeInDown" data-wow-delay="0.5s">
+                        <img class="img-responsive zoom" src="http://source.unsplash.com/1920x1080?yamaha" alt="">
+                    </section>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <section class="wow fadeInDown" data-wow-delay="0.5s">
+                        <img class="img-responsive zoom" src="http://source.unsplash.com/1920x1080?mvagusta" alt="">
+                    </section>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <section class="wow fadeInDown" data-wow-delay="0.5s">
+                        <img class="img-responsive zoom" src="http://source.unsplash.com/1920x1080?harleydavidson" alt="">
+                    </section>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <section class="wow fadeInDown" data-wow-delay="0.5s">
+                        <img class="img-responsive zoom" src="http://source.unsplash.com/1920x1080?ducati" alt="">
+                    </section>
                 </div>
             </div>
         </div>

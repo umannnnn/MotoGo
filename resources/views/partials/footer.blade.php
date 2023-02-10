@@ -13,8 +13,7 @@
             </div>
             <div class="col-sm-12 col-md-6" >
                 <div class="row">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3956.2707565217424!2d109.24690391486097!3d-7.435263094635845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e655ea49d9f9885%3A0x62be0b6159700ec9!2sInstitut%20Teknologi%20Telkom%20Purwokerto!5e0!3m2!1sid!2sid!4v1674750038868!5m2!1sid!2sid" width="458" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d609.7710816178748!2d109.23894953254043!3d-7.4001248017122965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zN8KwMjQnMDAuNyJTIDEwOcKwMTQnMTkuOSJF!5e0!3m2!1sid!2sid!4v1675916040795!5m2!1sid!2sid" width="450" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>                </div>
             </div>
         </div> <hr>
     </div>
@@ -25,10 +24,10 @@
             </div>
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <ul class="social-icons">
-                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                    <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
-                    <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                    <li><a target="_BLANK" class="whatsapp" href="https://api.whatsapp.com/send?phone=6285775144906"><i class="fa fa-whatsapp"></i></a></li>
+                    <li><a target="_BLANK" class="instagram" href="https://www.instagram.com/pamungkaas_/"><i class="fa fa-instagram"></i></a></li>
+                    <li><a target="_BLANK" class="github" href="https://github.com/umannnnn"><i class="fa fa-github"></i></a></li>
+                    <li><a target="_BLANK" class="linkedin" href="https://www.linkedin.com/in/umannn/"><i class="fa fa-linkedin"></i></a></li>   
                 </ul>
             </div>
         </div>
